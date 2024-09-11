@@ -1,2 +1,2 @@
 # segmented-lru
-Redis &amp; .NET implementation of segment LRU
+Redis &amp; .NET implementation of segmented LRU
