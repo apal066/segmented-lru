@@ -51,6 +51,7 @@ Segmented LRU is not natively supported by Redis. This my implementation of segm
   ],
   "hotCacheKeys": []
 }
+```
 
 ### Step 2: Access 1 & 3 using GET API. Both are promoted to hot cache
 
@@ -76,6 +77,7 @@ Segmented LRU is not natively supported by Redis. This my implementation of segm
     }
   ]
 }
+```
 
 ### Step 3
 
@@ -113,6 +115,7 @@ Create 2 more users. Both hot and cold cache are full.
     }
   ]
 }
+```
 
 ### Step 4
 
@@ -149,6 +152,7 @@ Access 2 again. 2 is promoted to hot cache. 1 is demoted to cold cache.
     }
   ]
 }
+```
 
 ### Step 5
 
@@ -186,6 +190,5 @@ Create new user 6, 1 evicted from cold cache.
     }
   ]
 }
-
-
+```
 
