@@ -140,7 +140,7 @@ namespace SegmentedLRU.Services
 
         private async Task PromoteIfRequired(CacheItem<T> cacheItem)
         {
-            if (cacheItem.Frequency > _promotionThreshold)
+            if (cacheItem.Frequency >= _promotionThreshold)
             {
                 await PromoteToHotCacheAsync(cacheItem);
             }
@@ -159,7 +159,7 @@ namespace SegmentedLRU.Services
 
         private async Task CheckCapacityAsync()
         {
-            // Check and evict from probation segment
+            // Check and evict from cold cache
             var coldCacheCount = await _redis.HashLengthAsync(_coldCache);
             if (coldCacheCount > _coldCacheCapacity)
             {
@@ -171,7 +171,7 @@ namespace SegmentedLRU.Services
                 }
             }
 
-            // Check and evict from protected segment
+            // Check and evict from hot cache
             var hotCacheCount = await _redis.HashLengthAsync(_hotCache);
             if (hotCacheCount > _hotCacheCapacity)
             {

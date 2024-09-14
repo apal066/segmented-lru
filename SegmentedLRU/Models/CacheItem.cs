@@ -6,7 +6,7 @@
         {
             Key = key;
             Value = value;
-            Frequency = 1;
+            Frequency = 0;
         }
         public string Key { get; set; }
         public T Value { get; private set; }
